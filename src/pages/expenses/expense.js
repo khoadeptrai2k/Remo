@@ -164,8 +164,6 @@ const Expense = () => {
       </Table>
     </TableContainer>
     </>
-    
-    
   );
 }
 

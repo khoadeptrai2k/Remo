@@ -3,6 +3,7 @@ import Tasks from "../../screens/Task/Tasks";
 import Header from "../Common/Header";
 import Payment from '../../pages/payments/payment';
 import Expense from '../../pages/expenses/expense';
+import CardInfo from "../../pages/cards/cardInfo/cardInfo";
 
 function Home() {
   return (
@@ -13,6 +14,7 @@ function Home() {
           <Route exact path={`/tasks`} element={<Tasks />} />
           <Route exact path={`/payments`} element={<Payment />} />
           <Route exact path={`/expenses`} element={<Expense />} />
+          <Route exact path={`/cardInfo`} element={<CardInfo />} />
         </Routes>
       </div>
     </div>
