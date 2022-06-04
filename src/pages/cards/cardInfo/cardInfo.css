@@ -61,11 +61,12 @@
     border-style: dashed;
     border-color:rgb(154, 102, 244);
     margin-bottom: 15px;
+    height: 700px;
   }
   
   .form {
     position: relative;
-    top: 300px;
+    top: 500px;
     left: 40%;
     transform: translate(-50%, -50%);
     width: 90%;
@@ -169,15 +170,13 @@
 .card1{
       background-color: rgb(76, 209, 156);
       border-radius: 3px;
-      margin: auto 0px;
       width: 300px;
-      text-align: center;
+      text-align: center  ;
       color: #fff;
   }
 .card2{
     background-color: rgb(249, 216, 221);
     border-radius: 3px;
-    margin:auto;
     width: 300px;
     text-align: center;
     color: #fff;
@@ -186,9 +185,12 @@
 .card3{
     background-color: rgb(243, 214, 124);
     border-radius: 3px;
-    margin:auto 0px;
     width: 300px;
     text-align: center;
     color: #fff;
 
+}
+.CardItem{
+    display: flex;
+    
 }

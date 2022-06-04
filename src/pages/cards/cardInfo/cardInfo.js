@@ -2,6 +2,7 @@ import { Box, CardContent, Typography } from '@material-ui/core';
 import { useState, useEffect } from 'react';
 import './cardInfo.css';
 import 'boxicons';
+import { Row,Col } from 'react-bootstrap';
 
 const CardInfo = (callback) => {
 
@@ -116,19 +117,31 @@ const formValidation = () =>{
         </div>
 
         <div className='form-inputs'>
-          <div>
-            <label className='form-label'>Email</label>
-            <label className='form-label2'>Enter your Email</label>
-          </div>
-          <input
-            className='form-input'
-            type='Email'
-            name='Email'
-            placeholder='Enter your Email'
-            value={values.Email}
-            onChange={handleChange}
-          />
-          {errors.Email && <p>{errors.Email}</p>}
+          <Row>
+            <Col>
+              <div>
+                <label className='form-label'>Email</label>
+                <label className='form-label2'>Enter your Email</label>
+              </div>
+            </Col>
+            <Col>
+              <div>
+              <input
+                className='form-input'
+                type='Email'
+                name='Email'
+                placeholder='Enter your Email'
+                value={values.Email}
+                onChange={handleChange}
+              />
+              {errors.Email && <p>{errors.Email}</p>}
+              </div>
+
+            </Col>
+          </Row>
+
+
+
         </div>
 
         <div className='form-inputs'>
@@ -225,13 +238,7 @@ const formValidation = () =>{
           />
           {errors.Card && <p>{errors.Card}</p>}
         </div>
-      </form>
-      <img className='form-img-2' src='cardCredit.png' alt=''/>
-    </div>
-    
-
-
-    <div style={{display:'flex'}}>
+    <div className='CardItem'>
       <CardContent className='card1'>
         <Typography variant="h5" color="text.secondary" gutterBottom>
           STANDARD
@@ -275,6 +282,14 @@ const formValidation = () =>{
     <button className='form-input-btn' type='submit'>
           Next Step...
     </button>
+      </form>
+      
+      <img className='form-img-2' src='cardCredit.png' alt=''/>
+    </div>
+    
+
+
+
     </>
     
   );

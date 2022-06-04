@@ -1,0 +1,25 @@
+.textSuccess{
+    margin-left: 100px;
+    margin-top: 50px;
+}
+.imgSuccess{
+    height: 500px;
+    width: 50%;
+
+}
+.textSuccess label{
+    width: 300px; 
+    word-wrap: break-word;
+}
+.textSuccess button{
+    background-color: rgb(18, 164, 194);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 20px;
+    margin-left: 100px;
+}
