@@ -14,7 +14,7 @@ export default function validateCard(values) {
   errors.message = "An unknown error occured. Please try again later"
   errors.cname = false;
   errors.cnumber = false;
-  errors.ctype = false;
+  // errors.ctype = false;
   errors.cexp = false;
   errors.ccvv = false;
   errors.cpostal = false;
@@ -46,20 +46,20 @@ export default function validateCard(values) {
   }
 
   //Card Type Verification
-  if (
-    values.cardType === null ||
-    !values.cardType.trim() ||
-    creditCard.card === null
-  ) {
-    errors.message = "Credit card type is not complete";
-  } else if (
-    creditCard.card.type &&
-    creditCard.card.type.toUpperCase() === values.cardType.toUpperCase()
-  ) {
-    errors.ctype = true;
-  } else {
-    errors.message = "Credit card type is invalid";
-  }
+  // if (
+  //   values.cardType === null ||
+  //   !values.cardType.trim() ||
+  //   creditCard.card === null
+  // ) {
+  //   errors.message = "Credit card type is not complete";
+  // } else if (
+  //   creditCard.card.type &&
+  //   creditCard.card.type.toUpperCase() === values.cardType.toUpperCase()
+  // ) {
+  //   errors.ctype = true;
+  // } else {
+  //   errors.message = "Credit card type is invalid";
+  // }
 
   //Card Number Verification
   if (values.cardNumber === null || !values.cardNumber.trim()) {
@@ -80,7 +80,7 @@ export default function validateCard(values) {
   }
 
   if (
-    errors.ctype &&
+    // errors.ctype &&
     errors.cname &&
     errors.cnumber &&
     errors.cexp &&

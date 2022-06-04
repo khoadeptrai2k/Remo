@@ -7,7 +7,7 @@ import "react-credit-cards/es/styles-compiled.css";
 import validateCard from "./validateCard";
 
 
-const CardPayment = () => {
+const CardPayment = ({currentStep}) => {
   const [values, setValues] = useState({
     cardName: '',
     cardNumber: '',
@@ -188,6 +188,7 @@ const handleSubmit = e => {
               data-testid="validateButton"
               id="validateButton"
               type="submit"
+              onClick={currentStep}
             >
               Validate
             </Button>
