@@ -1,8 +1,9 @@
-import { Box, CardContent, Typography } from '@material-ui/core';
+import { Box, CardContent, Grid, Typography } from '@material-ui/core';
 import { useState, useEffect } from 'react';
 import './cardInfo.css';
 import 'boxicons';
 import { Row,Col } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const CardInfo = (callback) => {
 
@@ -19,7 +20,7 @@ const CardInfo = (callback) => {
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-
+  const navigate = useNavigate()
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -61,12 +62,12 @@ const formValidation = () =>{
     newErrors.Card = 'Card Owner required';
   }
   setErrors(newErrors)
-}
 
+}
   const handleSubmit = e => {
     e.preventDefault();
     formValidation();
-    setIsSubmitting(true);
+    setIsSubmitting(true);    
   };
   useEffect(
     () => {
@@ -85,44 +86,60 @@ const formValidation = () =>{
     <div className='form-content-right'>
       <form onSubmit={handleSubmit} className='form' noValidate>
         <div className='form-inputs'>
-          <div>
-            <label className='form-label'>First Name</label>
-            <label className='form-label2'>Enter your first name</label>
-          </div>
-          <input
-            className='form-input'
-            type='text'
-            name='FirstName'
-            placeholder='Enter your First Name'
-            value={values.FirstName}
-            onChange={handleChange}
-          />
-          {errors.FirstName && <p>{errors.FirstName}</p>}
-        </div>
+          <Row>
+            <Col>
+              <Row>
+                <label className='form-label'>First Name</label>
+                <label className='form-label2'>Enter your first name</label>
+              </Row>
+            </Col>
+            <Col>
+                <input
+                className='form-input'
+                type='text'
+                name='FirstName'
+                placeholder='Enter your First Name'
+                value={values.FirstName}
+                onChange={handleChange}
+              />
+              {errors.FirstName && <p>{errors.FirstName}</p>}
+            </Col>
+          </Row>
 
-        <div className='form-inputs'>
-          <div>
-            <label className='form-label'>Last Name</label>
-            <label className='form-label2'>Enter your last name</label>
-          </div>
-          <input
-            className='form-input'
-            type='text'
-            name='LastName'
-            placeholder='Enter your Last Name'
-            value={values.LastName}
-            onChange={handleChange}
-          />
-          {errors.LastName && <p>{errors.LastName}</p>}
+
         </div>
 
         <div className='form-inputs'>
           <Row>
             <Col>
-              <div>
+              <Row>
+                <label className='form-label'>Last Name</label>
+                <label className='form-label2'>Enter your last name</label>
+              </Row>
+            </Col>
+            <Col>
+                <input
+                className='form-input'
+                type='text'
+                name='LastName'
+                placeholder='Enter your Last Name'
+                value={values.LastName}
+                onChange={handleChange}
+              />
+              {errors.LastName && <p>{errors.LastName}</p>}
+            </Col>
+          </Row>
+
+
+        </div>
+
+        <div className='form-inputs'>
+          <Row>
+            <Col>
+              <Row>
                 <label className='form-label'>Email</label>
                 <label className='form-label2'>Enter your Email</label>
-              </div>
+              </Row>
             </Col>
             <Col>
               <div>
@@ -145,100 +162,145 @@ const formValidation = () =>{
         </div>
 
         <div className='form-inputs'>
-          <div>
-            <label className='form-label'>Address 1</label>
-            <label className='form-label2'>Enter your Address 1</label>
-          </div>
-          <input
-            className='form-input'
-            type='text'
-            name='Address1'
-            placeholder='Enter your Address1'
-            value={values.Address1}
-            onChange={handleChange}
-          />
-          {errors.Address1 && <p>{errors.Address1}</p>}
+          <Row>
+            <Col>
+              <Row>
+                <label className='form-label'>Address 1</label>
+                <label className='form-label2'>Enter your Address 1</label>
+              </Row>
+            </Col>
+            <Col>
+              <input
+                className='form-input'
+                type='text'
+                name='Address1'
+                placeholder='Enter your Address1'
+                value={values.Address1}
+                onChange={handleChange}
+              />
+              {errors.Address1 && <p>{errors.Address1}</p>}
+            </Col>
+          </Row>
         </div>
 
         <div className='form-inputs'>
-          <div>
-            <label className='form-label'>Address 2</label>
-            <label className='form-label2'>Enter your Address 2</label>
-          </div>
-          <input
-            className='form-input'
-            type='text'
-            name='Address2'
-            placeholder='Enter your Address2'
-            value={values.Address2}
-            onChange={handleChange}
-          />
+          <Row>
+            <Col>
+              <Row>
+                <label className='form-label'>Address 2</label>
+                <label className='form-label2'>Enter your Address 2</label>
+              </Row>
+            </Col>
+            <Col>
+              <input
+                className='form-input'
+                type='text'
+                name='Address2'
+                placeholder='Enter your Address2'
+                value={values.Address2}
+                onChange={handleChange}
+              />
+            </Col>
+          </Row>
         </div>
 
         <div className='form-inputs'>
-          <div>
-            <label className='form-label'>City</label>
-            <label className='form-label2'>Enter your city</label>
-          </div>
-          <input
-            className='form-input'
-            type='text'
-            name='City'
-            placeholder='Enter your City'
-            value={values.City}
-            onChange={handleChange}
-          />
-          {errors.City && <p>{errors.City}</p>}
+          <Row>
+            <Col>
+              <Row>
+                <label className='form-label'>City</label>
+                <label className='form-label2'>Enter your city</label>
+              </Row>
+            </Col>
+            <Col>
+                <input
+                className='form-input'
+                type='text'
+                name='City'
+                placeholder='Enter your City'
+                value={values.City}
+                onChange={handleChange}
+              />
+              {errors.City && <p>{errors.City}</p>}
+            </Col>
+          </Row>
         </div>
 
         <div className='form-inputs'>
-          <div>
-            <label className='form-label'>Postal Code</label>
-            <label className='form-label2'>Enter your Postal Code</label>
-          </div>
-          <input
-            className='form-input'
-            type='text'
-            name='PostalCode'
-            placeholder='Enter your Postal Code'
-            value={values.PostalCode}
-            onChange={handleChange}
-          />
-          {errors.PostalCode && <p>{errors.PostalCode}</p>}
+          <Row>
+            <Col>
+              <Row>
+                <label className='form-label'>Postal Code</label>
+                <label className='form-label2'>Enter your Postal Code</label>
+              </Row>
+            </Col>
+            <Col>
+              <input
+              className='form-input'
+              type='text'
+              name='PostalCode'
+              placeholder='Enter your Postal Code'
+              value={values.PostalCode}
+              onChange={handleChange}
+            />
+              {errors.PostalCode && <p>{errors.PostalCode}</p>}
+            </Col>
+          </Row>
         </div>
 
         <div className='form-inputs'>
-          <div>
-            <label className='form-label'>Phone Number</label>
-            <label className='form-label2'>Enter your Phone Number</label>
-          </div>
-          <input
-            className='form-input'
-            type='text'
-            name='Phone'
-            placeholder='Enter your Phone Number'
-            value={values.Phone}
-            onChange={handleChange}
-          />
-          {errors.Phone && <p>{errors.Phone}</p>}
+          <Row>
+            <Col>
+              <Row>
+                <label className='form-label'>Phone Number</label>
+                <label className='form-label2'>Enter your Phone Number</label>
+              </Row>
+            </Col>
+            <Col>
+              <input
+                className='form-input'
+                type='text'
+                name='Phone'
+                placeholder='Enter your Phone Number'
+                value={values.Phone}
+                onChange={handleChange}
+              />
+              {errors.Phone && <p>{errors.Phone}</p>}
+            </Col>
+          </Row>
         </div>
 
         <div className='form-inputs'>
-          <div>
-            <label className='form-label'>Card Owner</label>
-            <label className='form-label2'>Enter your card owner</label>
-          </div>
-          <input
-            className='form-input'
-            type='text'
-            name='Card'
-            placeholder='Enter your Card Owner'
-            value={values.Card}
-            onChange={handleChange}
-          />
-          {errors.Card && <p>{errors.Card}</p>}
+          <Row>
+            <Col>
+              <Row>
+                <label className='form-label'>Card Owner</label>
+                <label className='form-label2'>Enter your card owner</label>
+              </Row>
+            </Col>
+            <Col>
+              <input
+                className='form-input'
+                type='text'
+                name='Card'
+                placeholder='Enter your Card Owner'
+                value={values.Card}
+                onChange={handleChange}
+              />
+              {errors.Card && <p>{errors.Card}</p>}
+            </Col>
+          </Row>
         </div>
-    <div className='CardItem'>
+
+
+    <div>
+    <button className='form-input-btn' type='submit'>
+          Next Step...
+    </button>
+    </div>
+
+      </form>
+      <div className='CardItem'>
       <CardContent className='card1'>
         <Typography variant="h5" color="text.secondary" gutterBottom>
           STANDARD
@@ -278,12 +340,6 @@ const formValidation = () =>{
         <box-icon name='crown' type='solid' color='white' ></box-icon>      
       </CardContent>
     </div>
-    
-    <button className='form-input-btn' type='submit'>
-          Next Step...
-    </button>
-      </form>
-      
       <img className='form-img-2' src='cardCredit.png' alt=''/>
     </div>
     
