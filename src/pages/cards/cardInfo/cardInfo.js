@@ -1,11 +1,11 @@
 import { Box, CardContent, Grid, Typography } from '@material-ui/core';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import './cardInfo.css';
 import 'boxicons';
 import { Row,Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
-const CardInfo = (callback) => {
+const CardInfo = () => {
 
   const [values, setValues] = useState({
     FirstName: '',
@@ -72,7 +72,7 @@ const formValidation = () =>{
   useEffect(
     () => {
       if (Object.keys(errors).length === 0 && isSubmitting) {
-        callback();
+        return navigate('/cardPayment')
       }
     },
     [errors]
@@ -82,7 +82,6 @@ const formValidation = () =>{
   return (
     <>
     <h1>Payments Card</h1>
-    
     <div className='form-content-right'>
       <form onSubmit={handleSubmit} className='form' noValidate>
         <div className='form-inputs'>
@@ -294,7 +293,7 @@ const formValidation = () =>{
 
 
     <div>
-    <button className='form-input-btn' type='submit'>
+    <button  className='form-input-btn' type='submit'>
           Next Step...
     </button>
     </div>

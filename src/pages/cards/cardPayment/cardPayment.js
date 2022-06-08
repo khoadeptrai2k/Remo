@@ -1,13 +1,15 @@
-import React,{useState} from "react";
+import React,{useState, useEffect} from "react";
 import { Button, Form, Alert, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./cardPayment.css";
 import Cards from "react-credit-cards";
 import "react-credit-cards/es/styles-compiled.css";
 import validateCard from "./validateCard";
+import { useNavigate } from 'react-router-dom';
 
 
-const CardPayment = ({currentStep}) => {
+const CardPayment = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [values, setValues] = useState({
     cardName: '',
     cardNumber: '',
@@ -19,7 +21,7 @@ const CardPayment = ({currentStep}) => {
 })
 
 const [errors, setErrors] = useState({})
-
+const navigate = useNavigate()
 const handleFocus = (e) => {
     setValues({ 
         ...values,
@@ -38,8 +40,20 @@ const handleChange = e => {
 const handleSubmit = e => {
     e.preventDefault()
     setErrors(validateCard(values))
+    setIsSubmitting(true)
+    if(!errors){
+      return navigate('/cardSuccess')
+    }
 
 };
+useEffect(
+  () => {
+    if (Object.keys(errors).length === 0 && isSubmitting) {
+      return navigate('/cardSuccess')
+    }
+  },
+  [errors]
+);
 
 
   return (
@@ -188,7 +202,6 @@ const handleSubmit = e => {
               data-testid="validateButton"
               id="validateButton"
               type="submit"
-              onClick={currentStep}
             >
               Validate
             </Button>

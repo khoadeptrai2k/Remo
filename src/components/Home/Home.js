@@ -6,6 +6,7 @@ import Expense from '../../pages/expenses/expense';
 import CardInfo from "../../pages/cards/cardInfo/cardInfo";
 import CardPayment from "../../pages/cards/cardPayment/cardPayment";
 import CardSuccess from "../../pages/cards/cardSuccess/cardSuccess";
+import Step from "../../pages/cards/stepCard/step";
 
 function Home() {
   return (
@@ -19,6 +20,7 @@ function Home() {
           <Route exact path={`/cardInfo`} element={<CardInfo />} />
           <Route exact path={`/cardPayment`} element={<CardPayment />} />
           <Route exact path={`/cardSuccess`} element={<CardSuccess />} />
+          <Route exact path={`/step`} element={<Step />} />
         </Routes>
       </div>
     </div>
